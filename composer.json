@@ -1,0 +1,20 @@
+{
+    "name": "misixcode/bitrix-admin-page-constructor",
+    "autoload": {
+        "psr-4": {
+            "AdminConstructor\\": "src/lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {}
+    },
+    "authors": [
+        {
+            "name": "Pautov Michail",
+            "email": "pautovmichail@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {},
+    "require-dev": {}
+}
