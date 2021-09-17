@@ -14,7 +14,7 @@
             "email": "pautovmichail@gmail.com"
         }
     ],
-    "minimum-stability": "beta",
+    "minimum-stability": "stable",
     "require": {},
     "require-dev": {}
 }
