@@ -315,15 +315,15 @@ abstract class Table extends Base
             window.opener.document.changeInput('#{$this->referenceInput}'); window.close();";
     }
 
-    final protected function jsDeleteAction(string $id): string
+    final protected function jsDeleteAction(string $id, string $params = ''): string
     {
         $confirm = json_encode(str_replace('#ID#', $id, Lang::get('CONFIRM_DELETE_LIST')));
-        return "if (confirm({$confirm})) {$this->list->ActionDoGroup($id, 'delete')}";
+        return "if (confirm({$confirm})) {$this->list->ActionDoGroup($id, 'delete', $params)}";
     }
 
-    final protected function jsAction(string $id, string $action): string
+    final protected function jsAction(string $id, string $action, string $params = ''): string
     {
-        return $this->list->ActionDoGroup($id, $action);
+        return $this->list->ActionDoGroup($id, $action, $params);
     }
 
     final protected function jsRedirectAction(string $url, array $params = []): string
