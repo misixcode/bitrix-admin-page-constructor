@@ -38,13 +38,13 @@ class Uploader
         $this->old = $old;
 
         foreach ($this->request as $key => $value) {
-            $basePattern = '#' . preg_quote($this->input) . '_([0-9]+)';
+            $basePattern = '#^' . preg_quote($this->input) . '_([0-9]+)';
             $mathes = [];
-            if (preg_match($basePattern . '#', $key, $mathes) === 1) {
+            if (preg_match($basePattern . '$#', $key, $mathes) === 1) {
                 $this->prepareItem(intval($mathes[1]));
             }
             $mathes = [];
-            if (preg_match($basePattern . '_NEW#', $key, $mathes) === 1) {
+            if (preg_match($basePattern . '_NEW$#', $key, $mathes) === 1) {
                 $this->prepareItem(intval($mathes[1]), '_NEW');
             }
         }
