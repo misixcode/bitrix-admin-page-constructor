@@ -48,9 +48,9 @@ class Html
             $mode = 'search';
         } else {
             $mode = 'select';
-            foreach ($values as $value => $display) {
-                $value = htmlspecialchars($value);
-                $result .= "<span data-value='{$value}'>{$display}</span>";
+            foreach ($values as $safe => $display) {
+                $safe = htmlspecialchars($safe);
+                $result .= "<span data-value='{$safe}'>{$display}</span>";
             }
         }
 
