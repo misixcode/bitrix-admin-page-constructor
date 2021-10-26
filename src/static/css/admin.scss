@@ -13,6 +13,96 @@
     }
   }
 
+  &-autocomplete {
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+    padding-right: 20px;
+    background-repeat: no-repeat;
+
+    button {
+      position: relative;
+      width: 25px;
+      height: 25px !important;
+      box-sizing: border-box;
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 4px !important;
+      border: none;
+      background: linear-gradient(to top, #d7e3e7, #fff)!important;
+      box-shadow: 0 0 1px rgba(0,0,0,.3), 0 1px 1px rgba(0,0,0,.3), inset 0 1px 0 #fff, inset 0 0 1px rgba(255,255,255,.5);
+      cursor: pointer;
+      outline: 0;
+      margin-left: 5px;
+
+      &:active {
+        box-shadow: inset 0 1px 1px 1px rgba(103,109,123,.78) !important;
+        background: linear-gradient(to bottom, rgba(179,194,200,.96), rgba(202,215,219,.96))!important;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 12px;
+        background-image: url(../images/down.svg);
+      }
+
+    }
+
+    &.loading {
+      background-size: 16px;
+      background-image: url(../images/waiter-button-light.gif);
+      background-position: right center;
+    }
+
+    &-input {
+      vertical-align: middle;
+    }
+
+    &-result {
+      position: absolute;
+      top: 100%;
+      margin-top: 2px;
+      background: #fff;
+      border: 1px solid;
+      border-color: #87919c #959ea9 #9ea7b1 #959ea9;
+      width: auto;
+      max-width: 500px;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 240px;
+      z-index: 100;
+      border-radius: 3px;
+
+      & > span {
+        display: block;
+        padding: 6px;
+        font-size: 12px;
+        line-height: 1;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: default;
+
+
+        &:hover {
+          background-color: #daefff;
+        }
+      }
+    }
+  }
+
   &-reference {
     display: inline-block;
     position: relative;

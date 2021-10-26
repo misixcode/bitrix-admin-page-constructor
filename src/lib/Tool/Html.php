@@ -34,6 +34,42 @@ class Html
         ";
     }
 
+    public static function autocompleteInput(
+        string $name,
+        string $id,
+        string $value = null,
+        string $url = null,
+        array $values = [],
+        int $size = 5
+    ): string {
+        $placeholder = Lang::get('REFERENCE_PLACEHOLDER');
+        $result = '';
+        if (strlen($url) > 0) {
+            $mode = 'search';
+        } else {
+            $mode = 'select';
+            foreach ($values as $value => $display) {
+                $value = htmlspecialchars($value);
+                $result .= "<span data-value='{$value}'>{$display}</span>";
+            }
+        }
+
+        \CJSCore::Init('jquery3');
+
+        $assets = Asset::getInstance();
+        $assets->addJs(Url::getStaticDir(true) . '/js/autocomplete.min.js');
+
+        return "
+            <div class='ac-autocomplete {$mode}' id='wrap_{$id}'>
+                <input placeholder='{$placeholder}' autocomplete='off' type='text' size='{$size}' name='{$name}' id='{$id}' value='{$value}' class='ac-autocomplete-input'>
+                <div class='ac-autocomplete-result' data-result style='display:none;'>{$result}</div>
+            </div>
+            <script>
+                new AutocompleteInput('wrap_{$id}','{$url}');
+            </script>
+        ";
+    }
+
     public static function wrap(string $content = null, int $width = 100): string
     {
         if (mb_strlen($content) === 0) {
