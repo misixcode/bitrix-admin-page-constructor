@@ -11,9 +11,9 @@ use AdminConstructor\Structure\UploaderParams;
 
 class FileInput extends Input
 {
-    private $value;
-    private $name;
-    private $parameters = [
+    protected $value;
+    protected $name;
+    protected $parameters = [
         'name' => '',
         'description' => false,
         'upload' => true,
@@ -26,10 +26,10 @@ class FileInput extends Input
     ];
 
     /** @var UploaderParams */
-    private $params;
+    protected $params;
 
     /** @var Uploader */
-    private $uploader;
+    protected $uploader;
 
     public function __construct(UploaderParams $params, Field $field = null, string $code = null, string $title = null)
     {
