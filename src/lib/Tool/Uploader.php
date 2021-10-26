@@ -37,16 +37,16 @@ class Uploader
         $this->input = 'BX_UPLOADER_' . $prefix . $inputName;
         $this->old = $old;
 
-        $i = 0;
-        while (isset($this->request[$this->input . '_' . $i])) {
-            $this->prepareItem($i);
-            $i++;
-        }
-
-        $i = 0;
-        while (isset($this->request[$this->input . '_' . $i . '_NEW'])) {
-            $this->prepareItem($i, '_NEW');
-            $i++;
+        foreach ($this->request as $key => $value) {
+            $basePattern = '#' . preg_quote($this->input) . '_([0-9]+)';
+            $mathes = [];
+            if (preg_match($basePattern . '#', $key, $mathes) === 1) {
+                $this->prepareItem(intval($mathes[1]));
+            }
+            $mathes = [];
+            if (preg_match($basePattern . '_NEW#', $key, $mathes) === 1) {
+                $this->prepareItem(intval($mathes[1]), '_NEW');
+            }
         }
 
         foreach ($this->files as $path) {
