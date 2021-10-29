@@ -17,7 +17,7 @@ class EnumFilter extends Filter
 
     public function __construct(string $code, Field &$field = null, string $title = null, array $values = null, bool $multiple = false)
     {
-        $this->code = strtolower($code);
+        $this->code = $code;
         $this->title = $title ?? (!is_null($field) ? $field->getTitle() : $code);
         $this->multiple = $multiple;
         $this->vars = [static::PREFIX . $this->code];

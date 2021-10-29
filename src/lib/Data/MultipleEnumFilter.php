@@ -14,7 +14,7 @@ class MultipleEnumFilter extends SpecialFilter
 
     public function __construct(string $code, Field &$field = null, string $title = null, array $values = null)
     {
-        $this->code = strtolower($code);
+        $this->code = $code;
         $this->title = $title ?? (!is_null($field) ? $field->getTitle() : $code);
         $this->vars = [static::PREFIX . $this->code];
         $this->values = $values;
