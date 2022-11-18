@@ -63,7 +63,7 @@ class ColorInput extends Input
             '',
             array(
                 'SHOW_BUTTON' => 'Y',
-                'ID' => "color",
+                'ID' => "COLOR_{$this->name}",
                 'NAME' => '',
                 'ONSELECT' => "SET_COLOR_{$this->name}"
             ),
