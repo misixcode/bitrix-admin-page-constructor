@@ -6,6 +6,7 @@ use Bitrix\Main\HttpRequest;
 use Bitrix\Main\ORM\Fields\Field;
 use Bitrix\Main\Type\Date;
 use Bitrix\Main\Type\DateTime;
+use Bitrix\Main\Config\Option;
 
 class DateTimeInput extends Input
 {
@@ -30,7 +31,7 @@ class DateTimeInput extends Input
             }
 
             if ($this->time) {
-                $this->value = new DateTime($value);
+                $this->value = new DateTime($value, null, new \DateTimeZone(Option::get('main', 'default_time_zone') ?: ''));
             } else {
                 $this->value = new Date($value);
             }
