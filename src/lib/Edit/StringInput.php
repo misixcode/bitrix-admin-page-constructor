@@ -42,7 +42,7 @@ class StringInput extends Input
 
     public function getInput(): string
     {
-        return "<input type='text' maxlength='{$this->max}' size='{$this->size}' name='{$this->name}' id='{$this->name}' value='{$this->value}' class='{$this->mask}'>";
+        return "<input type='text' maxlength='{$this->max}' size='{$this->size}' name='{$this->name}' id='{$this->name}' value=\"{$this->value}\" class='{$this->mask}'>";
     }
 
     public function completeActions(bool $success): void
