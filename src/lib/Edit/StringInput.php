@@ -35,7 +35,7 @@ class StringInput extends Input
 
         $this->value = isset($request[$this->name])
             ? trim(htmlspecialchars(strval($request[$this->name])))
-            : strval($defaults[$this->getCode()]);
+            : htmlspecialchars(strval($defaults[$this->getCode()]));
 
         $values[$this->getCode()] = $this->value;
     }
