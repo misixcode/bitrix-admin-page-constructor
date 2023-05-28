@@ -19,7 +19,7 @@ class Html
         \CJSCore::Init('jquery3');
 
         $assets = Asset::getInstance();
-        $assets->addJs(Url::getStaticDir(true) . '/js/reference.min.js');
+        $assets->addJs(Url::getStaticDir(true) . '/js/reference.js');
 
         return "
             <div class='ac-reference'>
@@ -57,7 +57,7 @@ class Html
         \CJSCore::Init('jquery3');
 
         $assets = Asset::getInstance();
-        $assets->addJs(Url::getStaticDir(true) . '/js/autocomplete.min.js');
+        $assets->addJs(Url::getStaticDir(true) . '/js/autocomplete.js');
 
         return "
             <div class='ac-autocomplete {$mode}' id='wrap_{$id}'>
