@@ -48,8 +48,8 @@ abstract class Base
         \CJSCore::Init('jquery3');
 
         $assets = Asset::getInstance();
-        $assets->addJs(Url::getStaticDir(true) . '/js/admin.min.js');
-        $assets->addJs(Url::getStaticDir(true) . '/js/jquery.mask.min.js');
+        $assets->addJs(Url::getStaticDir(true) . '/js/admin.js');
+        $assets->addJs(Url::getStaticDir(true) . '/js/jquery.mask.js');
 
 
         self::$request = Context::getCurrent()->getRequest();
