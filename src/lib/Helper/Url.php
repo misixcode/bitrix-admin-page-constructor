@@ -4,12 +4,9 @@ namespace AdminConstructor\Helper;
 
 class Url
 {
-    public static function make(string $page, array $params = [], string $langId = LANGUAGE_ID): string
+    public static function make(string $page, array $params = [], string $langId = null): string
     {
-        if (mb_strlen($langId) > 0) {
-            $params['lang'] = $langId;
-        }
-
+        $params['lang'] = strlen($langId) ? $langId : LANGUAGE_ID;
         $query = http_build_query($params);
 
         if (mb_strlen($query) > 0) {
